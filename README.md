@@ -1,5 +1,7 @@
 # tech-blog
 
+![Deploy Hugo site to Pages](https://github.com/DerekGala/tech-blog/actions/workflows/deploy.yml/badge.svg)
+
 用 **Hugo** 构建、发布到 **GitHub Pages** 的静态博客。
 
 - 站点地址：https://derekgala.github.io/tech-blog/
