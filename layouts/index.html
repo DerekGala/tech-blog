@@ -1,0 +1,22 @@
+{{ define "main" }}
+<h1 class="page-title">{{ site.Title }}</h1>
+{{ with site.Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+{{ if $posts }}
+<ul class="post-list">
+  {{ range $posts.ByDate.Reverse }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <div class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .Params.author }}<span class="author">{{ . }}</span>{{ end }}
+      {{ with .Params.tags }}<span class="tags">{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</span>{{ end }}
+    </div>
+    {{ with .Summary }}<p class="summary">{{ . | plainify | truncate 140 }}</p>{{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ else }}
+<p class="empty">还没有文章。在 <code>content/posts/</code> 下新建 Markdown 文件即可。</p>
+{{ end }}
+{{ end }}

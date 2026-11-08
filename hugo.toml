@@ -1,0 +1,24 @@
+baseURL = "https://derekgala.github.io/tech-blog/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "Tech Blog"
+enableRobotsTXT = true
+# 无外部主题依赖：模板都在 layouts/ 里，CI 只装 Hugo 就能构建
+paginate = 10
+summaryLength = 30
+
+[params]
+  author = "DerekGala"
+  description = "技术笔记与实验记录"
+
+[taxonomies]
+  tag = "tags"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS"]
